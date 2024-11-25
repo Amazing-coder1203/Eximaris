@@ -178,19 +178,33 @@ File Structure
 Insert Code
 Edit
 Copy code
+
 Eximaris_Project/
+
 ├── dashboard/
+
 │   ├── Dashboard.html
+
 │   ├── inventory.html
+
 │   ├── market.html
+
 │   ├── shipments.html
+
 │   └── analytics.html
+
 ├── graphics/          # Images and illustrations for the application
+
 ├── login.html         # Login and signup page
+
 ├── main.html          # Main landing page
+
 ├── script.js          # JavaScript for interactivity
+
 ├── styles.css         # CSS for styling the application
+
 └── mainserver.js      # Node.js server file
+
 Usage
 Sign Up: Create a new account by filling out the registration form.
 
