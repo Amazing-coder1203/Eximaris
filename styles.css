@@ -1,0 +1,255 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #4a4a4a; /* Dark gray for text */
+  background-color: #fff7e6; /* Light yellowish background */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #c66666; /* Bright orange for navbar */
+  color: #ffffff;
+  padding: 1rem 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar .nav-links li {
+  margin-left: 1.5rem;
+}
+
+.navbar .nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar .login-btn {
+  background-color: #ffd700; /* Vibrant yellow for CTA */
+  color: #4a4a4a;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.navbar .login-btn:hover {
+  background-color: #e6c200; /* Slightly darker yellow for hover */
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to bottom, #f5a623, #fae7d1); /* Orange gradient */
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 5rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+}
+
+.hero .image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 0; /* Ensure images are below text */
+}
+
+.hero .image-container .left-image,
+.hero .image-container .right-image {
+  width: 40%; /* Adjust width to fit the layout */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1; /* Make the images translucent */
+}
+
+.hero .image-container .left-image {
+  background-image: url('graphics/Aircraft.svg');
+}
+
+.hero .image-container .right-image {
+  background-image: url('graphics/Ship.svg');
+}
+
+.hero h2 {
+  font-family: Rye;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  z-index: 1; /* Ensure text is on top of the images */
+  position: relative; /* Keeps text above images */
+}
+
+.hero p {
+  margin-bottom: 2rem;
+  z-index: 1; /* Keeps text on top */
+  position: relative;
+}
+
+/* .cta-buttons button {
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0.5rem; 
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-buttons .cta-primary {
+  background-color: #f08a00; 
+  color: white;
+}
+
+.cta-buttons .cta-primary .cta-primary:hover {
+  background-color: #3c3730; 
+}
+
+.cta-buttons .cta-secondary {
+  background-color: white;
+  color: #f08a00;
+  border: 2px solid #f08a00;
+}
+
+.cta-buttons .cta-secondary:hover {
+  background-color: #ffeed9;
+} */
+
+/* About-Section */
+.about {
+  background: linear-gradient(to bottom,#fae7d1,#fffaf0);
+  color: rgb(83, 47, 47);
+  text-align: center;
+  padding: 5rem 1rem;
+  /* background-color: #fae7d1; */
+}
+.about h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #f08a00; /* Deep orange for headings */
+}
+
+/* Features Section */
+.features {
+  background-color: #fffaf0; /* Subtle off-white for contrast */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #f08a00; /* Deep orange for headings */
+}
+
+.feature-cards {
+  display: flex;
+  flex-wrap: wrap; /* Ensures cards wrap on smaller screens */
+  gap: 2rem; /* Adds space between cards */
+  justify-content: center; /* Centers the cards */
+}
+
+/* Feature Card Container */
+.feature-card {
+  display: flex; /* Flexbox for horizontal alignment */
+  align-items: center; /* Vertically center-align content */
+  justify-content: space-between; /* Space between text and image */
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 1.5rem; /* Padding for internal spacing */
+  margin-bottom: 2rem; /* Space between cards */
+  max-width: 1000px; /* Limits width for larger screens */
+  width: 100%; /* Full width for smaller screens */
+  max-height: 800px;
+  min-height: 300px;
+  flex-wrap: wrap; /* Wrap content for smaller screens */
+}
+
+/* Text Section */
+.card-text-section {
+  flex: 1; /* Allow the text section to take up equal space */
+  padding-right: 2rem; /* Add spacing between text and image */
+  min-width: 300px; /* Ensure text section doesn't shrink too much */
+}
+
+.card-text-section h3 {
+  font-family: Bungee Spice;
+  font-size: 2rem;
+  color: #f08a00; /* Orange for headings */
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.card-text-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a4a4a; /* Neutral dark gray for body text */
+  text-align: left;
+}
+
+/* Image Section */
+.card-image-section {
+  flex: 1; /* Allow the image section to take up equal space */
+  display: flex;
+  justify-content: center; /* Center-align the image horizontally */
+  align-items: center; /* Center-align the image vertically */
+  max-width: 400px; /* Set a max width for the image container */
+  min-width: 250px; /* Ensure it doesn't shrink too much */
+}
+
+.card-image-section img {
+  width: 100%; /* Make the image responsive */
+  max-width: 300px; /* Restrict the maximum size */
+  height: auto;
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feature-card {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center; /* Center-align content for mobile */
+  }
+
+  .card-text-section {
+    padding-right: 0; /* Remove spacing between text and image */
+    margin-bottom: 1rem; /* Add spacing below text on small screens */
+  }
+
+  .card-image-section {
+    max-width: 100%; /* Allow full-width images on smaller screens */
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #4a4a4a; /* Dark gray for footer contrast */
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}

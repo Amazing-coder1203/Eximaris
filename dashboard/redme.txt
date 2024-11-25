@@ -1,0 +1,3 @@
+first run the server.js by node server.js
+then start the new.html
+and have fun 

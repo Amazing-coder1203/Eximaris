@@ -1,0 +1,627 @@
+<html>
+ <head>
+  <title>
+   Eximaris
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f5;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #b8860b;
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+            color: white;
+            transition: width 0.3s;
+        }
+        .sidebar.closed {
+            width: 0;
+            overflow: hidden;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        .sidebar ul li:hover {
+            background-color: #d2a679;
+        }
+        .sidebar ul li i {
+            margin-right: 10px;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+        .main-content.shifted {
+            margin-left: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header .icons {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .header .icons i {
+            margin-left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .notification-icon {
+            position: relative;
+        }
+        .notification-icon .red-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .invoices {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .invoice-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .invoice-card h3 {
+            margin-top: 0;
+        }
+        .invoice-card p {
+            margin: 10px 0 0;
+        }
+        .invoice-card .country {
+            display: flex;
+            align-items: center;
+        }
+        .invoice-card .country img {
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="sidebar" id="sidebar">
+   <h2>
+    Eximaris
+   </h2>
+   <ul>
+    <li onclick="location.href='dashboard.html'">
+     <i class="fas fa-tachometer-alt">
+     </i>
+     Dashboard
+    </li>
+    <li onclick="location.href='shipments.html'">
+     <i class="fas fa-shipping-fast">
+     </i>
+     Shipments
+    </li>
+    <li onclick="location.href='inventory.html'">
+     <i class="fas fa-warehouse">
+     </i>
+     Inventory
+    </li>
+    <li onclick="location.href='analytics.html'">
+     <i class="fas fa-chart-line">
+     </i>
+     Analytics
+    </li>
+    <li onclick="location.href='invoices.html'">
+     <i class="fas fa-file-invoice">
+     </i>
+     Invoices
+    </li>
+    <li onclick="location.href='chat.html'">
+     <i class="fas fa-comments">
+     </i>
+     Chat
+    </li>
+    <li onclick="location.href='marketplace.html'">
+     <i class="fas fa-store">
+     </i>
+     Marketplace
+    </li>
+    <li onclick="location.href='blog.html'">
+     <i class="fas fa-blog">
+     </i>
+     Blog
+    </li>
+    <li onclick="location.href='payment_history.html'">
+     <i class="fas fa-history">
+     </i>
+     Payment History
+    </li>
+    <li onclick="location.href='settings.html'">
+     <i class="fas fa-cog">
+     </i>
+     Settings
+    </li>
+   </ul>
+  </div>
+  <div class="main-content" id="main-content">
+   <div class="header">
+    <i class="fas fa-bars menu-icon" id="menu-icon">
+    </i>
+    <h1>
+     Invoices
+    </h1>
+    <div class="icons">
+     <div class="notification-icon">
+      <i class="fas fa-bell">
+      </i>
+      <div class="red-dot">
+      </div>
+     </div>
+     <i class="fas fa-user-circle">
+     </i>
+    </div>
+   </div>
+   <div class="invoices">
+    <div class="invoice-card">
+     <h3>
+      Invoice #1
+     </h3>
+     <p>
+      Client: Client 1
+     </p>
+     <p>
+      Ref No: 123456
+     </p>
+     <p>
+      Amount: $1000
+     </p>
+     <p class="country">
+      <img alt="USA flag" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"/>
+      USA
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #2
+     </h3>
+     <p>
+      Client: Client 2
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $2000
+     </p>
+     <p class="country">
+      <img alt="China flag" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg"/>
+      China
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #3
+     </h3>
+     <p>
+      Client: Client 3
+     </p>
+     <p>
+      Ref No: 789012
+     </p>
+     <p>
+      Amount: $1500
+     </p>
+     <p class="country">
+      <img alt="Germany flag" src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg"/>
+      Germany
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #4
+     </h3>
+     <p>
+      Client: Client 4
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $2500
+     </p>
+     <p class="country">
+      <img alt="Japan flag" src="https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg"/>
+      Japan
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #5
+     </h3>
+     <p>
+      Client: Client 5
+     </p>
+     <p>
+      Ref No: 345678
+     </p>
+     <p>
+      Amount: $3000
+     </p>
+     <p class="country">
+      <img alt="UK flag" src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"/>
+      UK
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #6
+     </h3>
+     <p>
+      Client: Client 6
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $1200
+     </p>
+     <p class="country">
+      <img alt="France flag" src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg"/>
+      France
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #7
+     </h3>
+     <p>
+      Client: Client 7
+     </p>
+     <p>
+      Ref No: 901234
+     </p>
+     <p>
+      Amount: $1800
+     </p>
+     <p class="country">
+      <img alt="India flag" src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"/>
+      India
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #8
+     </h3>
+     <p>
+      Client: Client 8
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $2200
+     </p>
+     <p class="country">
+      <img alt="Italy flag" src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg"/>
+      Italy
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #9
+     </h3>
+     <p>
+      Client: Client 9
+     </p>
+     <p>
+      Ref No: 567890
+     </p>
+     <p>
+      Amount: $1700
+     </p>
+     <p class="country">
+      <img alt="Canada flag" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"/>
+      Canada
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #10
+     </h3>
+     <p>
+      Client: Client 10
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $2100
+     </p>
+     <p class="country">
+      <img alt="Australia flag" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg"/>
+      Australia
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #11
+     </h3>
+     <p>
+      Client: Client 11
+     </p>
+     <p>
+      Ref No: 234567
+     </p>
+     <p>
+      Amount: $1300
+     </p>
+     <p class="country">
+      <img alt="Brazil flag" src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg"/>
+      Brazil
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #12
+     </h3>
+     <p>
+      Client: Client 12
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $1400
+     </p>
+     <p class="country">
+      <img alt="Russia flag" src="https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg"/>
+      Russia
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #13
+     </h3>
+     <p>
+      Client: Client 13
+     </p>
+     <p>
+      Ref No: 678901
+     </p>
+     <p>
+      Amount: $1600
+     </p>
+     <p class="country">
+      <img alt="South Korea flag" src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg"/>
+      South Korea
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #14
+     </h3>
+     <p>
+      Client: Client 14
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $1900
+     </p>
+     <p class="country">
+      <img alt="Mexico flag" src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg"/>
+      Mexico
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #15
+     </h3>
+     <p>
+      Client: Client 15
+     </p>
+     <p>
+      Ref No: 345678
+     </p>
+     <p>
+      Amount: $2300
+     </p>
+     <p class="country">
+      <img alt="Spain flag" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"/>
+      Spain
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #16
+     </h3>
+     <p>
+      Client: Client 16
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $2400
+     </p>
+     <p class="country">
+      <img alt="Netherlands flag" src="https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg"/>
+      Netherlands
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #17
+     </h3>
+     <p>
+      Client: Client 17
+     </p>
+     <p>
+      Ref No: 789012
+     </p>
+     <p>
+      Amount: $2600
+     </p>
+     <p class="country">
+      <img alt="Switzerland flag" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg"/>
+      Switzerland
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #18
+     </h3>
+     <p>
+      Client: Client 18
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $2700
+     </p>
+     <p class="country">
+      <img alt="Sweden flag" src="https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg"/>
+      Sweden
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #19
+     </h3>
+     <p>
+      Client: Client 19
+     </p>
+     <p>
+      Ref No: 123456
+     </p>
+     <p>
+      Amount: $2800
+     </p>
+     <p class="country">
+      <img alt="Norway flag" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg"/>
+      Norway
+     </p>
+     <p>
+      Status: Paid
+     </p>
+    </div>
+    <div class="invoice-card">
+     <h3>
+      Invoice #20
+     </h3>
+     <p>
+      Client: Client 20
+     </p>
+     <p>
+      Ref No:
+     </p>
+     <p>
+      Amount: $2900
+     </p>
+     <p class="country">
+      <img alt="Denmark flag" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg"/>
+      Denmark
+     </p>
+     <p>
+      Status: Unpaid
+     </p>
+    </div>
+   </div>
+  </div>
+  <script>
+   document.getElementById('menu-icon').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('closed');
+            mainContent.classList.toggle('shifted');
+        });
+  </script>
+ </body>
+</html>

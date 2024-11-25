@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eximaris</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rye&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Eximaris</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="login-btn" onclick="open_signup()">Login</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="image-container">
+      <div class="left-image"></div>
+      <div class="right-image"></div>
+    </div>
+    <div class="container">
+      <h2>Streamline Global Trade Operations</h2>
+      <p>Empower your international trade journey with intuitive tools and seamless operations.</p>
+      <!-- <div class="cta-buttons">
+        <button class="cta-primary">Get Started</button>
+        <button class="cta-secondary">Learn More</button>
+      </div> -->
+    </div>
+  </section>
+  
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Our company has developed a transformative global e-commerce platform that enables small and mid-sized
+        businesses to easily import and export products worldwide. The platform simplifies international trade by
+        offering a centralized, user-friendly marketplace. Importers gain enhanced product visibility, secure
+        transactions, and reliable shipping options, while exporters access a vast global customer base and powerful
+        business tools. With robust agent support and legal expertise, we ensure a seamless experience for all users.
+        Our solution helps businesses overcome the complexities of global trade. With scalable features and a focus on
+        client success, we empower small businesses to thrive internationally. This platform is a game-changer for
+        global trade.</p>
+    </div>
+  </section>
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Our Features</h2>
+      <div class="feature-cards">
+
+
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>TRADE LIKE A PRO WITH PERSONALIZED GUIDANCE</h3>
+            <p>Navigating international trade can be challenging, but you're never alone with our dedicated agents. From
+              compliance and logistics to business strategy, our experts provide step-by-step support to ensure your
+              success every step of the way.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/logistic-support.svg" alt="Logistics Support Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>ALWAYS IN THE KNOW, WHEREVER YOUR GOODS GO</h3>
+            <p>Stay updated with real-time shipment tracking at your fingertips. Our platform gives you instant
+              visibility into every stage of your shipment’s journey, from dispatch to delivery.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/shipment-tracking.svg" alt="Shipment Tracking Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>YOUR TRADE, YOUR WAY</h3>
+            <p>Whether by air, sea, or land, we offer tailored shipping options to fit your schedule and budget. Choose
+              the mode of transport that works best for you and get your goods where they need to be, on time.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/flexible-trade.svg" alt="Flexible Trade Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>YOUR DATA IS YOUR BUSINESS,<br> WE KEEP IT THAT WAY</h3>
+            <p>We prioritize your privacy with industry-leading encryption, secure storage, and strict compliance with
+              global data protection standards. You can trust us to keep your information safe and confidential.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/data-privacy.svg" alt="Data Privacy Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>SEAMLESS AND WORRY-FREE PAYMENTS</h3>
+            <p>Enjoy the peace of mind that comes with our robust payment system. With advanced fraud prevention and
+              secure processing, your transactions are always protected.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/secure-transactions.svg" alt="Secure Transactions Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>TALK TRADE LIKE IT'S FACE-TO-FACE</h3>
+            <p>Resolve issues, connect with partners, and stay informed with our integrated communication hub. Whether
+              via chat, voice, or video, you’ll always have a direct line to the people who matter.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/real-time-communication.svg" alt="Real-Time Communication Illustration"
+              class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>YOUR GOODS, GUARANTEED</h3>
+            <p>Protect your valuable shipments with our comprehensive insurance options. From start to finish, your
+              cargo is covered for any unforeseen events, giving you peace of mind.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/shipment-insurance.svg" alt="Shipment Insurance Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>STAY INFORMED, ACT FAST</h3>
+            <p>Never miss a critical update with our alert system. From delays to incidents, we notify you instantly so
+              you can take quick action and stay ahead of any issues.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/alert-system.svg" alt="Alert System Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 9 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>BREAKING LANGUAGE BARRIERS</h3>
+            <p>With support in multiple languages, our platform ensures smooth communication no matter where you’re
+              trading. Speak your language and connect effortlessly with partners worldwide.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/multilingual-support.svg" alt="Multilingual Support Illustration" class="feature-image">
+          </div>
+        </div>
+
+        <!-- Feature 10 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>LOGISTICS YOU CAN COUNT ON</h3>
+            <p>Through partnerships with trusted carriers, we provide cost-effective and dependable shipping solutions.
+              Rest easy knowing your goods are in the hands of professionals.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/reliable-logistics.svg" alt="Reliable Logistics Illustration" class="feature-image">
+          </div>
+        </div>
+        <!-- Feature 11 -->
+        <div class="feature-card">
+          <div class="card-text-section">
+            <h3>STAY AHEAD, STAY INSPIRED</h3>
+            <p>Don't just keep up with the trade world—shape it. Our blog is your go-to toolkit for solving real-world
+              challenges, spotting opportunities, and building a future-proof strategy.</p>
+          </div>
+          <div class="card-image-section">
+            <img src="graphics/blog.svg" alt="Blog Illustration" class="feature-image">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Eximaris. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

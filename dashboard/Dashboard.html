@@ -1,0 +1,482 @@
+<html>
+ <head>
+  <title>
+   Eximaris
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f5;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #b8860b;
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+            color: white;
+            transition: width 0.3s;
+        }
+        .sidebar.closed {
+            width: 0;
+            overflow: hidden;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        .sidebar ul li:hover {
+            background-color: #d2a679;
+        }
+        .sidebar ul li i {
+            margin-right: 10px;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+        .main-content.shifted {
+            margin-left: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header .icons {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .header .icons i {
+            margin-left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .notification-icon {
+            position: relative;
+        }
+        .notification-icon .red-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .upper-section {
+            display: flex;
+            gap: 20px;
+        }
+        .left-half {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 50%;
+        }
+        .right-half {
+            width: 50%;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        .clients-section {
+            margin-top: 20px;
+        }
+        .clients-section h2 {
+            margin-top: 0;
+        }
+        .clients {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .client-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 20px);
+            display: flex;
+            align-items: center;
+        }
+        .client-card img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .client-card .client-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .client-card .client-info h4 {
+            margin: 0;
+        }
+        .client-card .client-info p {
+            margin: 0;
+            color: gray;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="sidebar" id="sidebar">
+   <h2>
+    Eximaris
+   </h2>
+   <ul>
+    <li onclick="location.href='dashboard.html'">
+     <i class="fas fa-tachometer-alt">
+     </i>
+     Dashboard
+    </li>
+    <li onclick="location.href='shipments.html'">
+     <i class="fas fa-shipping-fast">
+     </i>
+     Shipments
+    </li>
+    <li onclick="location.href='inventory.html'">
+     <i class="fas fa-warehouse">
+     </i>
+     Inventory
+    </li>
+    <li onclick="location.href='analytics.html'">
+     <i class="fas fa-chart-line">
+     </i>
+     Analytics
+    </li>
+    <li onclick="location.href='invoices.html'">
+     <i class="fas fa-file-invoice">
+     </i>
+     Invoices
+    </li>
+    <li onclick="location.href='chat.html'">
+     <i class="fas fa-comments">
+     </i>
+     Chat
+    </li>
+    <li onclick="location.href='marketplace.html'">
+     <i class="fas fa-store">
+     </i>
+     Marketplace
+    </li>
+    <li onclick="location.href='blog.html'">
+     <i class="fas fa-blog">
+     </i>
+     Blog
+    </li>
+    <li onclick="location.href='payment_history.html'">
+     <i class="fas fa-history">
+     </i>
+     Payment History
+    </li>
+    <li onclick="location.href='settings.html'">
+     <i class="fas fa-cog">
+     </i>
+     Settings
+    </li>
+   </ul>
+  </div>
+  <div class="main-content" id="main-content">
+   <div class="header">
+    <i class="fas fa-bars menu-icon" id="menu-icon">
+    </i>
+    <h1>
+     Dashboard
+    </h1>
+    <div class="icons">
+     <div class="notification-icon">
+      <i class="fas fa-bell">
+      </i>
+      <div class="red-dot">
+      </div>
+     </div>
+     <i class="fas fa-user-circle">
+     </i>
+    </div>
+   </div>
+   <div class="dashboard">
+    <div class="upper-section">
+     <div class="left-half">
+      <div class="card"  onclick="location.href='#your-clients'" >
+       <h3>
+        Your Clients
+       </h3>
+      </div>
+      <div class="card" onclick="location.href='shipments.html'">
+       <h3>
+        Your Shipments
+       </h3>
+      </div>
+      <div class="card" onclick="location.href='marketplace.html'" >
+       <h3>
+        Marketplace
+       </h3>
+      </div>
+      <div class="card"  onclick="location.href='blog.html'">
+       <h3>
+        Blog
+       </h3>
+      </div>
+     </div>
+     <div class="right-half">
+      <div class="card">
+       <h3>
+        Global Trade
+       </h3>
+       <div class="chart-container">
+        <canvas id="globalTradeChart">
+        </canvas>
+       </div>
+      </div>
+     </div>
+    </div>
+    <section id="your-clients" class="clients-section">
+     <h2>
+      Your Clients
+     </h2>
+     <div class="clients">
+      <div class="client-card">
+       <img alt="USA flag" src="https://flagcdn.com/w40/us.png"/>
+       <div class="client-info">
+        <h4>
+         Client 1
+        </h4>
+        <p>
+         USA
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="China flag" src="https://flagcdn.com/w40/cn.png"/>
+       <div class="client-info">
+        <h4>
+         Client 2
+        </h4>
+        <p>
+         China
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Germany flag" src="https://flagcdn.com/w40/de.png"/>
+       <div class="client-info">
+        <h4>
+         Client 3
+        </h4>
+        <p>
+         Germany
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Japan flag" src="https://flagcdn.com/w40/jp.png"/>
+       <div class="client-info">
+        <h4>
+         Client 4
+        </h4>
+        <p>
+         Japan
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="UK flag" src="https://flagcdn.com/w40/gb.png"/>
+       <div class="client-info">
+        <h4>
+         Client 5
+        </h4>
+        <p>
+         UK
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="France flag" src="https://flagcdn.com/w40/fr.png"/>
+       <div class="client-info">
+        <h4>
+         Client 6
+        </h4>
+        <p>
+         France
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="India flag" src="https://flagcdn.com/w40/in.png"/>
+       <div class="client-info">
+        <h4>
+         Client 7
+        </h4>
+        <p>
+         India
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Italy flag" src="https://flagcdn.com/w40/it.png"/>
+       <div class="client-info">
+        <h4>
+         Client 8
+        </h4>
+        <p>
+         Italy
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Canada flag" src="https://flagcdn.com/w40/ca.png"/>
+       <div class="client-info">
+        <h4>
+         Client 9
+        </h4>
+        <p>
+         Canada
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Australia flag" src="https://flagcdn.com/w40/au.png"/>
+       <div class="client-info">
+        <h4>
+         Client 10
+        </h4>
+        <p>
+         Australia
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Brazil flag" src="https://flagcdn.com/w40/br.png"/>
+       <div class="client-info">
+        <h4>
+         Client 11
+        </h4>
+        <p>
+         Brazil
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Russia flag" src="https://flagcdn.com/w40/ru.png"/>
+       <div class="client-info">
+        <h4>
+         Client 12
+        </h4>
+        <p>
+         Russia
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="South Korea flag" src="https://flagcdn.com/w40/kr.png"/>
+       <div class="client-info">
+        <h4>
+         Client 13
+        </h4>
+        <p>
+         South Korea
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Mexico flag" src="https://flagcdn.com/w40/mx.png"/>
+       <div class="client-info">
+        <h4>
+         Client 14
+        </h4>
+        <p>
+         Mexico
+        </p>
+       </div>
+      </div>
+      <div class="client-card">
+       <img alt="Spain flag" src="https://flagcdn.com/w40/es.png"/>
+       <div class="client-info">
+        <h4>
+         Client 15
+        </h4>
+        <p>
+         Spain
+        </p>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div>
+  </div>
+  <script>
+   document.getElementById('menu-icon').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('closed');
+            mainContent.classList.toggle('shifted');
+        });
+
+        // Global Trade Chart
+        const globalTradeCtx = document.getElementById('globalTradeChart').getContext('2d');
+        new Chart(globalTradeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['USA', 'China', 'Germany', 'Japan', 'UK', 'France', 'India'],
+                datasets: [{
+                    label: 'Trade Volume (in billions)',
+                    data: [3000, 2500, 2000, 1800, 1500, 1200, 1000],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+  </script>
+ </body>
+</html>

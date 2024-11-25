@@ -1,0 +1,553 @@
+<html>
+ <head>
+  <title>
+   Eximaris
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f5;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #b8860b;
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+            color: white;
+            transition: width 0.3s;
+        }
+        .sidebar.closed {
+            width: 0;
+            overflow: hidden;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        .sidebar ul li:hover {
+            background-color: #d2a679;
+        }
+        .sidebar ul li i {
+            margin-right: 10px;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+        .main-content.shifted {
+            margin-left: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header .icons {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .header .icons i {
+            margin-left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .notification-icon {
+            position: relative;
+        }
+        .notification-icon .red-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .shipments-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .shipments-table th, .shipments-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .shipments-table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="sidebar" id="sidebar">
+   <h2>
+    Eximaris
+   </h2>
+   <ul>
+    <li onclick="location.href='dashboard.html'">
+     <i class="fas fa-tachometer-alt">
+     </i>
+     Dashboard
+    </li>
+    <li onclick="location.href='shipments.html'">
+     <i class="fas fa-shipping-fast">
+     </i>
+     Shipments
+    </li>
+    <li onclick="location.href='inventory.html'">
+     <i class="fas fa-warehouse">
+     </i>
+     Inventory
+    </li>
+    <li onclick="location.href='analytics.html'">
+     <i class="fas fa-chart-line">
+     </i>
+     Analytics
+    </li>
+    <li onclick="location.href='invoices.html'">
+     <i class="fas fa-file-invoice">
+     </i>
+     Invoices
+    </li>
+    <li onclick="location.href='chat.html'">
+     <i class="fas fa-comments">
+     </i>
+     Chat
+    </li>
+    <li onclick="location.href='marketplace.html'">
+     <i class="fas fa-store">
+     </i>
+     Marketplace
+    </li>
+    <li onclick="location.href='blog.html'">
+     <i class="fas fa-blog">
+     </i>
+     Blog
+    </li>
+    <li onclick="location.href='payment_history.html'">
+     <i class="fas fa-history">
+     </i>
+     Payment History
+    </li>
+    <li onclick="location.href='settings.html'">
+     <i class="fas fa-cog">
+     </i>
+     Settings
+    </li>
+   </ul>
+  </div>
+  <div class="main-content" id="main-content">
+   <div class="header">
+    <i class="fas fa-bars menu-icon" id="menu-icon">
+    </i>
+    <h1>
+     Your Shipments
+    </h1>
+    <div class="icons">
+     <div class="notification-icon">
+      <i class="fas fa-bell">
+      </i>
+      <div class="red-dot">
+      </div>
+     </div>
+     <i class="fas fa-user-circle">
+     </i>
+    </div>
+   </div>
+   <table class="shipments-table">
+    <thead>
+     <tr>
+      <th>
+       From
+      </th>
+      <th>
+       To
+      </th>
+      <th>
+       Client
+      </th>
+      <th>
+       Status
+      </th>
+      <th>
+       Mode of Transport
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td>
+       New York
+      </td>
+      <td>
+       Los Angeles
+      </td>
+      <td>
+       Client 1
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Air
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Beijing
+      </td>
+      <td>
+       Shanghai
+      </td>
+      <td>
+       Client 2
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Rail
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Berlin
+      </td>
+      <td>
+       Munich
+      </td>
+      <td>
+       Client 3
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Road
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Tokyo
+      </td>
+      <td>
+       Osaka
+      </td>
+      <td>
+       Client 1
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Sea
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Paris
+      </td>
+      <td>
+       Lyon
+      </td>
+      <td>
+       Client 2
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Air
+      </td>
+     </tr>
+     <tr>
+      <td>
+       London
+      </td>
+      <td>
+       Manchester
+      </td>
+      <td>
+       Client 3
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Rail
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Sydney
+      </td>
+      <td>
+       Melbourne
+      </td>
+      <td>
+       Client 1
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Road
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Moscow
+      </td>
+      <td>
+       Saint Petersburg
+      </td>
+      <td>
+       Client 2
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Sea
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Rome
+      </td>
+      <td>
+       Milan
+      </td>
+      <td>
+       Client 3
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Air
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Madrid
+      </td>
+      <td>
+       Barcelona
+      </td>
+      <td>
+       Client 1
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Rail
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Toronto
+      </td>
+      <td>
+       Vancouver
+      </td>
+      <td>
+       Client 2
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Road
+      </td>
+     </tr>
+     <tr>
+      <td>
+       New Delhi
+      </td>
+      <td>
+       Mumbai
+      </td>
+      <td>
+       Client 3
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Rail
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Cairo
+      </td>
+      <td>
+       Alexandria
+      </td>
+      <td>
+       Client 1
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Air
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Johannesburg
+      </td>
+      <td>
+       Cape Town
+      </td>
+      <td>
+       Client 2
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Rail
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Buenos Aires
+      </td>
+      <td>
+       Cordoba
+      </td>
+      <td>
+       Client 3
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Road
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Sao Paulo
+      </td>
+      <td>
+       Rio de Janeiro
+      </td>
+      <td>
+       Client 1
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Sea
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Mexico City
+      </td>
+      <td>
+       Guadalajara
+      </td>
+      <td>
+       Client 2
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Air
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Seoul
+      </td>
+      <td>
+       Busan
+      </td>
+      <td>
+       Client 3
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Rail
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Bangkok
+      </td>
+      <td>
+       Chiang Mai
+      </td>
+      <td>
+       Client 1
+      </td>
+      <td>
+       Delivered
+      </td>
+      <td>
+       Road
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Istanbul
+      </td>
+      <td>
+       Ankara
+      </td>
+      <td>
+       Client 2
+      </td>
+      <td>
+       Not Delivered
+      </td>
+      <td>
+       Rail
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <script>
+   document.getElementById('menu-icon').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('closed');
+            mainContent.classList.toggle('shifted');
+        });
+  </script>
+ </body>
+</html>
